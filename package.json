@@ -1,0 +1,25 @@
+{
+    "name": "messaging-app-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Rama Del Maestro",
+    "license": "ISC",
+    "dependencies": {
+        "@prisma/client": "^6.3.1",
+        "@prisma/extension-accelerate": "^1.2.1",
+        "bcrypt": "^5.1.1",
+        "connect-pg-simple": "^10.0.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.1",
+        "express-session": "^1.18.1",
+        "pg": "^8.13.1"
+    },
+    "devDependencies": {
+        "prisma": "^6.3.1"
+    }
+}

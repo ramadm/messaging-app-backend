@@ -1,0 +1,26 @@
+GET http://localhost:3000/messages
+
+###
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "Rama3",
+    "password": "Password"
+}
+
+###
+
+POST http://localhost:3000/login/password
+Content-Type: application/json
+
+{
+    "username": "Rama",
+    "password": "Password"
+}
+
+###
+
+POST http://localhost:3000/logout
+Content-Type: application/json
