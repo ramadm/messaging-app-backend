@@ -35,7 +35,7 @@ passport.use(
 
 passport.serializeUser(function (user, cb) {
     process.nextTick(function () {
-        cb(null, { id: user.id, username: user.name });
+        cb(null, { id: user.id, username: user.username });
     });
 });
 
@@ -68,17 +68,29 @@ router.post(
     }),
     function (req, res) {
         res.send({
-            message: "Success!",
+            id: req.user.id,
+            username: req.user.username,
         });
     }
 );
 
+router.post("/session", (req, res) => {
+    if (!req.user) {
+        return res.sendStatus(403);
+    }
+    res.send({
+        id: req.user.id,
+        username: req.user.username,
+    });
+});
+
 router.post("/logout", (req, res, next) => {
     req.logout(function (err) {
         if (err) {
+            console.log(err);
             return next(err);
         }
-        res.redirect("/");
+        res.sendStatus(200);
     });
 });
 
