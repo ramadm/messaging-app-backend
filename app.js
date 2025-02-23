@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const cors = require("cors");
 const session = require("express-session");
@@ -14,7 +14,7 @@ const app = express();
 const authRouter = require("./routes/auth");
 const passport = require("passport");
 
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 app.use(express.json());
 
 app.use(
