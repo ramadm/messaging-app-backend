@@ -52,10 +52,9 @@ router.post("/register", async (req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
         await queries.createUser(req.body.username, hashedPassword);
         console.log(`User created: ${req.body.username}`);
-        res.send({
-            message: "Success",
-        });
-    } catch {
+        return res.sendStatus(200);
+    } catch (err) {
+        console.log(err);
         res.sendStatus(403);
     }
 });
